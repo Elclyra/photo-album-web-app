@@ -1,0 +1,59 @@
+<div class="album-page container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-center">
+                <h1>Hi, {{this.userName}}!</h1>
+                <h2>Here are your albums:</h2>
+            </div>
+            <div class="albums">
+                <div class="albums-cover">
+                    <div id="album-{{i+1}}" class="album-item" *ngFor="let album of this.albumsList, let i = index">
+                        <div (click)="showImages(i+1)" class="album-title">
+                            <span>{{album}}</span> 
+                            <img class="cross" src="/assets/images/trash.svg" (click)="albumsList.splice(i, 1); this.albumsDeleted = this.albumsDeleted+1; this.addLog('album-deleted')">
+                        </div>
+                        <div id="images-{{i+1}}" class="images hidden"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="forms">
+                <div class="album-form">
+                    <div class="text-center">
+                        <h2>Add Album</h2>
+                    </div>
+                    <input class="form-control" type="text" id="form-album-title" placeholder="Album title"><br>
+                    <button class="btn btn-dark" (click)="addAlbum()">Add album</button>
+                </div>
+            </div>
+            
+            <div class="forms">
+                <div class="image-form">
+                    <div class="text-center">
+                        <h2>Add image</h2>
+                    </div>
+                    <label class="form-label" for="form-select-album">Select the album</label><br>
+                    <select class="form-select" name="form-select-album" id="form-select-album">
+                        <option *ngFor="let album of this.albumsList, let i = index" value="album-{{i+1}}">{{album}}</option>
+                    </select>
+                    <br>
+                    <label class="form-label" for="form-select-album">Image source</label><br>
+                    <input class="form-control" type="text" id="form-image-source" placeholder="Ex: https://via.placeholder.com/150/92c952"><br>
+                    <button class="btn btn-dark" (click)="addImages()">Add image</button>
+                </div>
+            </div>
+            <div class="album-overview">
+                <h2>Albums overview</h2>
+                <div class="album-overview-details">
+                    <p>Amount: <span>{{this.albumsList.length}}</span></p>
+                    <p>Created: <span>{{this.albumsCreated}}</span></p>
+                    <p>Deleted: <span>{{this.albumsDeleted}}</span></p>
+                </div>
+            </div>
+            <div class="album-log">
+                <h2>Action log</h2>
+                <div id="action-log"></div>
+            </div>
+        </div>
+        <button routerLink="" id="back">Go back</button>
+    </div>
+</div>

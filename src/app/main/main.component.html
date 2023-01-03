@@ -1,0 +1,16 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="users">
+        <div class="text-center">
+          <h1>Photo album web app</h1>
+        </div>
+        <ul>
+          <li *ngFor="let name of nameList, let i = index">
+            <a routerLink="albums/{{i+1}}/{{name}}">{{name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

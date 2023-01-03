@@ -1,0 +1,150 @@
+.album-page .albums {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 60px;
+}
+
+.album-page .albums .albums-cover .album-item {
+  margin-bottom: 20px;
+  font-size: 24px;
+  background-color: #e9e9e9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.album-page .albums .albums-cover .album-item .album-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+}
+
+.album-page .albums .albums-cover .album-item .album-title .cross {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.album-page .albums .albums-cover .album-item .images {
+  margin-top: 20px;
+  max-height: 1500px;
+  max-width: 1100px;
+  opacity: 1;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.album-page .albums .albums-cover .album-item .images img {
+  width: 150px;
+  height: 150px;
+}
+
+.album-page .albums .albums-cover .album-item .images .image-removal {
+  width: 25px;
+  position: absolute;
+  cursor: pointer;
+  right: 5px;
+  bottom: 11px;
+}
+
+.album-page .albums .albums-cover .album-item .hidden {
+  margin-top: 0 !important;
+  max-height: 0 !important;
+  max-width: 460px !important;
+  opacity: 0 !important;
+}
+
+.album-page .forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+}
+
+.album-page .forms label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.album-page .forms .form-control {
+  width: calc(100% - 24px);
+  padding-left: 10px;
+}
+
+.album-page .forms .album-form {
+  width: 500px;
+}
+
+.album-page .forms .image-form {
+  width: 500px;
+}
+
+.album-page .album-overview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin-top: 60px;
+}
+
+.album-page .album-overview .album-overview-details {
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.album-page .album-overview .album-overview-details p {
+  width: 100px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.album-page #back {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius: 50%;
+  background: #e7e7e7;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.album-page #back:hover {
+  background: #cbcbcb;
+}
+
+.hidden {
+  visibility: hidden;
+}
+/*# sourceMappingURL=albums.component.css.map */
