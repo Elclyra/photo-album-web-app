@@ -50,10 +50,32 @@
                 </div>
             </div>
             <div class="album-log">
+                <hr>
                 <h2>Action log</h2>
                 <div id="action-log"></div>
             </div>
         </div>
         <button routerLink="" id="back">Go back</button>
+    </div>
+</div>
+
+
+<div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{this.currentImg}}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="customImgModal" tabindex="-1" aria-labelledby="customImgModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{this.currentCustomImg}}">
+            </div>
+        </div>
     </div>
 </div>

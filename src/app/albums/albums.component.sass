@@ -1,10 +1,12 @@
 @import "./node_modules/bootstrap/scss/bootstrap-grid.scss"
 @import "./node_modules/bootstrap/scss/bootstrap-utilities.scss"
 @import "./node_modules/bootstrap/scss/_buttons.scss"
+@import "./node_modules/bootstrap/scss/_modal.scss"
 @import "./node_modules/bootstrap/scss/forms/"
 
 
 .album-page
+    overflow: hidden
     .albums
         display: flex
         justify-content: center
@@ -35,7 +37,8 @@
                         img
                             width: 150px
                             height: 150px
-                        .image-removal
+                            cursor: pointer
+                        .image-removal, .custom-image-removal
                             width: 25px
                             height: 25px
                             position: absolute
@@ -85,7 +88,9 @@
         justify-content: center
         align-items: center
         flex-flow: column
-        margin-top: 60px
+        margin-top: 40px
+        hr
+            width: 100%
 
     #back
         width: 100px
@@ -102,3 +107,14 @@
             
 .hidden
     visibility: hidden
+
+.modal
+    .modal-content
+        background-color: transparent
+        border: 0
+        .modal-body
+            display: flex
+            justify-content: center
+            img
+                width: 100%
+                max-width: 600px

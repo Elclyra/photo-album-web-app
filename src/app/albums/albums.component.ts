@@ -19,6 +19,9 @@ export class AlbumsComponent implements OnInit {
   albumsList: any = []
   albums:any = {}
 
+  currentImg:any = "";
+  currentCustomImg:any = "";
+
   albumsUrl = "https://jsonplaceholder.typicode.com/users/"+this.userId+"/albums";
 
 
@@ -51,7 +54,7 @@ export class AlbumsComponent implements OnInit {
     .pipe(map((res: any) => { 
       for(const key in res){
         let images:any = document.getElementById('images-'+ album) 
-        images.innerHTML += `<a><img src="${res[key].thumbnailUrl}" class="image-item" id="image-${res[key].id}"><img class="image-removal" src="/assets/images/trash.svg"></a>`;
+        images.innerHTML += `<a><img data-bs-toggle="modal" data-bs-target="#imgModal" src="${res[key].thumbnailUrl}" class="image-item" id="image-${res[key].id}"><img class="image-removal" src="/assets/images/trash.svg"></a>`;
       }
     }))
     .subscribe(() => {
@@ -76,7 +79,7 @@ export class AlbumsComponent implements OnInit {
     let seletedAlbum = document.getElementById(inputAlbumId)
     let images:any = seletedAlbum?.querySelector('.images')
     if(inputImageSource !== ''){
-      images.innerHTML += `<a><img src="${inputImageSource}" class="image-item" id="image-custom-${this.imageId}"><img class="custom-image-removal image-removal" src="/assets/images/trash.svg"></a>`;
+      images.innerHTML += `<a><img data-bs-toggle="modal" data-bs-target="#customImgModal" src="${inputImageSource}" class="custom-image-item" id="image-custom-${this.imageId}"><img class="custom-image-removal" src="/assets/images/trash.svg"></a>`;
       this.addImageRemoval(true);
       this.imageId++;
       this.addLog('image-created')
@@ -86,7 +89,29 @@ export class AlbumsComponent implements OnInit {
   public addImageRemoval(isCustom:boolean){
     if(isCustom){
       document.querySelectorAll('.custom-image-removal').forEach(item =>{
-        item.removeAllListeners
+        let selected:any = item;
+        selected.removeAllListeners()
+        item.addEventListener('click', (e:any) =>{
+          item.parentElement?.remove();
+          this.addLog('image-deleted')
+        })
+      })
+      document.querySelectorAll('.custom-image-item').forEach(item =>{
+        item.addEventListener('click', (e:any) =>{
+          this.currentCustomImg = item.getAttribute('src')
+        })
+      })
+      document.querySelectorAll('.image-item').forEach(item =>{
+        item.addEventListener('click', (e:any) =>{
+          let splitImage:any = item.getAttribute('src')?.split('/');
+          splitImage[3] = '600';
+          this.currentImg = splitImage.join('/')
+        })
+      })
+      document.querySelectorAll('.image-removal').forEach(item =>{
+        let selected:any = item;
+        selected.removeAllListeners()
+        
         item.addEventListener('click', (e:any) =>{
           item.parentElement?.remove();
           this.addLog('image-deleted')
@@ -98,6 +123,13 @@ export class AlbumsComponent implements OnInit {
         item.addEventListener('click', (e:any) =>{
           item.parentElement?.remove();
           this.addLog('image-deleted')
+        })
+      })
+      document.querySelectorAll('.image-item').forEach(item =>{
+        item.addEventListener('click', (e:any) =>{
+          let splitImage:any = item.getAttribute('src')?.split('/');
+          splitImage[3] = '600';
+          this.currentImg = splitImage.join('/')
         })
       })
     }
